@@ -13,6 +13,10 @@ backend:
   name: github
   repo: MattBixley/otago_orienteering   # change to the club's org/repo when handed over
   branch: main
+  # Auth helper that performs the GitHub OAuth token exchange. REQUIRED for
+  # login to work. Deploy sveltia-cms-auth (Cloudflare Worker) and paste its
+  # URL here (no trailing slash). Full instructions: see OAuth.md.
+  # base_url: https://<your-auth-worker>.workers.dev
   # Editorial workflow gives Draft → In review → Ready, so changes can be
   # checked before they go live. Great for a multi-editor committee.
   # publish_mode: editorial_workflow
