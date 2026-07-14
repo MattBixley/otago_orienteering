@@ -1,0 +1,89 @@
+---
+layout: default
+title: Home
+hide_title: true
+description: Otago Orienteering Club — events, results and resources for orienteering across Otago, New Zealand. Beginners welcome.
+---
+
+<section class="hero">
+  <h1>Find your way in the wild places of Otago</h1>
+  <p>
+    Otago Orienteering Club runs navigation-and-running events across Dunedin and
+    the wider region — for first-timers, families and seasoned racers alike.
+    Turn up, grab a map, and go.
+  </p>
+  <div class="btn-row">
+    <a class="btn" href="{{ '/events/' | relative_url }}">See upcoming events</a>
+    <a class="btn btn-ghost" href="{{ '/about/' | relative_url }}">New to orienteering?</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h2>Next events</h2>
+    <a href="{{ '/events/' | relative_url }}">Full calendar &rarr;</a>
+  </div>
+
+  {% assign today = site.time | date: "%Y-%m-%d" %}
+  {% assign upcoming = site.events | where_exp: "e", "e.date >= today" | sort: "date" %}
+  {% if upcoming.size > 0 %}
+  <ul class="event-list">
+    {% for event in upcoming limit: 4 %}
+    <li>
+      <a class="event-item" href="{{ event.url | relative_url }}">
+        <span class="event-date">
+          <span class="d">{{ event.date | date: "%-d" }}</span>
+          <span class="m">{{ event.date | date: "%b" }}</span>
+        </span>
+        <span>
+          <h3>{{ event.title }}</h3>
+          <span class="where">{{ event.location }}</span>
+        </span>
+        <span class="go" aria-hidden="true">&rarr;</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>No events are scheduled right now — check back soon or follow us on
+     <a href="{{ site.social.facebook }}">Facebook</a>.</p>
+  {% endif %}
+</section>
+
+<section class="section">
+  <h2>Start here</h2>
+  <div class="grid">
+    <a class="card" href="{{ '/about/' | relative_url }}">
+      <div class="icon" aria-hidden="true">🧭</div>
+      <h3>New to the sport</h3>
+      <p>What orienteering is, and how to come along to your first event.</p>
+    </a>
+    <a class="card" href="{{ '/events/' | relative_url }}">
+      <div class="icon" aria-hidden="true">📅</div>
+      <h3>Events</h3>
+      <p>Upcoming events with dates, courses, costs and how to enter.</p>
+    </a>
+    <a class="card" href="{{ '/results/' | relative_url }}">
+      <div class="icon" aria-hidden="true">🏁</div>
+      <h3>Results</h3>
+      <p>Results and splits, archived by year and event type.</p>
+    </a>
+    <a class="card" href="{{ '/resources/' | relative_url }}">
+      <div class="icon" aria-hidden="true">📚</div>
+      <h3>Learn the skills</h3>
+      <p>Coaching and training material from Orienteering New Zealand.</p>
+    </a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="callout">
+    <h3>Everyone is welcome</h3>
+    <p>
+      You don't need to be fast or fit to start. Courses range from easy,
+      well-tracked lines for beginners and families through to technical bush
+      courses. Come as you are — we'll show you the ropes.
+      <a href="{{ '/contact/' | relative_url }}">Get in touch</a>.
+    </p>
+  </div>
+</section>

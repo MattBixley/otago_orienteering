@@ -1,0 +1,32 @@
+---
+layout: default
+---
+<article class="event">
+  <p class="crumb"><a href="{{ '/events/' | relative_url }}">&larr; All events</a></p>
+  <header class="page-header">
+    <span class="badge badge-{{ page.type | default: 'event' | slugify }}">{{ page.event_type | default: "Event" }}</span>
+    <h1>{{ page.title }}</h1>
+    <p class="event-meta">
+      <strong>{{ page.date | date: "%A %-d %B %Y" }}</strong>
+      {% if page.start_time %} · {{ page.start_time }}{% endif %}
+      {% if page.location %} · {{ page.location }}{% endif %}
+    </p>
+  </header>
+
+  <div class="event-grid">
+    <div class="prose">
+      {{ content }}
+    </div>
+    <aside class="event-facts">
+      <h2>Details</h2>
+      <dl>
+        {% if page.location %}<dt>Location</dt><dd>{{ page.location }}</dd>{% endif %}
+        {% if page.grade %}<dt>Courses</dt><dd>{{ page.grade }}</dd>{% endif %}
+        {% if page.cost %}<dt>Cost</dt><dd>{{ page.cost }}</dd>{% endif %}
+        {% if page.registration %}<dt>Register</dt><dd><a href="{{ page.registration }}">Sign up</a></dd>{% endif %}
+        {% if page.map_url %}<dt>Map</dt><dd><a href="{{ page.map_url }}">View map</a></dd>{% endif %}
+      </dl>
+      {% if page.results %}<p><a class="btn" href="{{ page.results | relative_url }}">Results</a></p>{% endif %}
+    </aside>
+  </div>
+</article>

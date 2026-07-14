@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<article class="result">
+  <p class="crumb"><a href="{{ '/results/' | relative_url }}">&larr; All results</a></p>
+  <header class="page-header">
+    <h1>{{ page.title }}</h1>
+    <p class="event-meta">
+      <strong>{{ page.date | date: "%-d %B %Y" }}</strong>
+      {% if page.event_type %} · {{ page.event_type }}{% endif %}
+    </p>
+  </header>
+  <div class="prose">
+    {{ content }}
+    {% if page.files %}
+    <h2>Downloads</h2>
+    <ul>
+      {% for f in page.files %}
+      <li><a href="{{ f.url }}">{{ f.label }}</a></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% if page.event %}<p><a class="btn" href="{{ page.event | relative_url }}">Event details</a></p>{% endif %}
+  </div>
+</article>

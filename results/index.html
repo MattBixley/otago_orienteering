@@ -1,0 +1,63 @@
+---
+layout: default
+title: Results
+permalink: /results/
+description: Otago Orienteering results and splits, archived by year and event type.
+---
+
+<div class="page-header">
+  <h1>Results</h1>
+  <p class="page-subtitle">Archived by year, then event type. Splits and route analysis link out to WinSplits, RouteGadget and Livelox.</p>
+</div>
+
+{% assign results = site.results | sort: "date" | reverse %}
+
+{% if results.size > 0 %}
+  {% assign years = results | map: "year" | uniq %}
+  {% for year in years %}
+  <section class="year-block">
+    <h2>{{ year }}</h2>
+    {% assign year_results = results | where: "year", year %}
+    {% assign types = year_results | map: "event_type" | uniq %}
+    {% for type in types %}
+      <h3>{{ type }}</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Date</th><th>Event</th><th>Results &amp; splits</th></tr>
+          </thead>
+          <tbody>
+            {% assign rows = year_results | where: "event_type", type %}
+            {% for r in rows %}
+            <tr>
+              <td>{{ r.date | date: "%-d %b" }}</td>
+              <td><a href="{{ r.url | relative_url }}">{{ r.title }}</a></td>
+              <td>
+                {% if r.files %}
+                  {% for f in r.files %}<a href="{{ f.url }}">{{ f.label }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}
+                {% else %}<a href="{{ r.url | relative_url }}">View</a>{% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% endfor %}
+  </section>
+  {% endfor %}
+{% else %}
+  <p>No results have been posted yet. Check back after our next event.</p>
+{% endif %}
+
+<section class="section">
+  <div class="callout">
+    <h3>About the results tools</h3>
+    <p>
+      We use the standard orienteering tools:
+      <a href="https://obasen.orientering.se/winsplits/">WinSplits</a> for split
+      times, <a href="https://www.livelox.com/">Livelox</a> for GPS route
+      replay, and RouteGadget for route comparison. Each event links to whatever
+      is available for that day.
+    </p>
+  </div>
+</section>

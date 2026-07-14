@@ -1,0 +1,73 @@
+title: Otago Orienteering
+tagline: Find your way in the wild places of Otago
+description: >-
+  Otago Orienteering Club (formerly Dunedin Orienteering Club) — events,
+  results, resources and everything you need to start orienteering in Otago,
+  New Zealand.
+email: info@otagoorienteering.org
+url: "https://mattbixley.github.io"
+baseurl: "/otago_orienteering"
+locale: en_NZ
+
+# Build
+markdown: kramdown
+permalink: pretty
+timezone: Pacific/Auckland
+
+# Collections
+collections:
+  events:
+    output: true
+    permalink: /events/:path/
+  results:
+    output: true
+    permalink: /results/:path/
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: page
+  - scope:
+      path: ""
+      type: events
+    values:
+      layout: event
+  - scope:
+      path: ""
+      type: results
+    values:
+      layout: result
+
+# Navigation (edit here to change the top menu)
+nav:
+  - title: Home
+    url: /
+  - title: About
+    url: /about/
+  - title: Events
+    url: /events/
+  - title: Results
+    url: /results/
+  - title: Resources
+    url: /resources/
+  - title: Policy
+    url: /policy/
+  - title: Contact
+    url: /contact/
+
+# Social / club
+social:
+  facebook: https://www.facebook.com/COOrienteering/
+  onz: https://www.orienteering.org.nz/
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - ooweb_refactor.md
+  - _research/
+  - _reviews/
+  - vendor/
+  - .github/

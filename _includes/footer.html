@@ -1,0 +1,27 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <span class="brand-text">Otago<strong>Orienteering</strong></span>
+      <p>Formerly Dunedin Orienteering Club. Running and navigating across Otago, Aotearoa New Zealand.</p>
+    </div>
+    <div class="footer-col">
+      <h2>Quick links</h2>
+      <ul>
+        {% for item in site.nav %}
+        <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h2>Find us</h2>
+      <ul>
+        <li><a href="{{ site.social.facebook }}">Facebook</a></li>
+        <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+        <li><a href="{{ site.social.onz }}">Orienteering New Zealand</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-legal">
+    <p>&copy; {{ site.time | date: "%Y" }} Otago Orienteering Club. Draft site built for review.</p>
+  </div>
+</footer>

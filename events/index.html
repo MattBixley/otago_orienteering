@@ -1,0 +1,86 @@
+---
+layout: default
+title: Events
+permalink: /events/
+description: Upcoming Otago Orienteering events — dates, locations, courses and how to enter. Beginners always welcome.
+---
+
+<div class="page-header">
+  <h1>Events</h1>
+  <p class="page-subtitle">Turn up, grab a map, and go. Newcomers welcome at every event.</p>
+</div>
+
+<div class="callout">
+  <h3>New here? Read this first</h3>
+  <p>
+    You can just turn up. Registration usually opens 30–45 minutes before the
+    start; casual entry is available at most events (see each event for cost).
+    Wear shoes you can run off-track in and bring a friend.
+    <a href="{{ '/about/' | relative_url }}">More for beginners &rarr;</a>
+  </p>
+</div>
+
+{% assign today = site.time | date: "%Y-%m-%d" %}
+{% assign upcoming = site.events | where_exp: "e", "e.date >= today" | sort: "date" %}
+{% assign past = site.events | where_exp: "e", "e.date < today" | sort: "date" | reverse %}
+
+<section class="section">
+  <h2>Upcoming</h2>
+  {% if upcoming.size > 0 %}
+  <ul class="event-list">
+    {% for event in upcoming %}
+    <li>
+      <a class="event-item" href="{{ event.url | relative_url }}">
+        <span class="event-date">
+          <span class="d">{{ event.date | date: "%-d" }}</span>
+          <span class="m">{{ event.date | date: "%b" }}</span>
+        </span>
+        <span>
+          <h3>{{ event.title }} <span class="badge">{{ event.event_type }}</span></h3>
+          <span class="where">{{ event.location }}{% if event.start_time %} · {{ event.start_time }}{% endif %}</span>
+        </span>
+        <span class="go" aria-hidden="true">&rarr;</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>No events scheduled at the moment. Follow us on
+     <a href="{{ site.social.facebook }}">Facebook</a> for announcements.</p>
+  {% endif %}
+</section>
+
+{% if past.size > 0 %}
+<section class="section">
+  <h2>Recent past events</h2>
+  <ul class="event-list">
+    {% for event in past limit: 6 %}
+    <li>
+      <a class="event-item" href="{{ event.url | relative_url }}">
+        <span class="event-date">
+          <span class="d">{{ event.date | date: "%-d" }}</span>
+          <span class="m">{{ event.date | date: "%b" }}</span>
+        </span>
+        <span>
+          <h3>{{ event.title }}</h3>
+          <span class="where">{{ event.location }}{% if event.results %} · results available{% endif %}</span>
+        </span>
+        <span class="go" aria-hidden="true">&rarr;</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  <p><a href="{{ '/results/' | relative_url }}">Browse all results by year &rarr;</a></p>
+</section>
+{% endif %}
+
+<section class="section">
+  <div class="callout">
+    <h3>Subscribe to the calendar</h3>
+    <p>
+      Add our events to your own calendar with the feed at
+      <code>[calendar-feed-url]</code>, or sign up for entries online through
+      <a href="https://entero.co.nz/">Entero</a> where offered.
+    </p>
+  </div>
+</section>

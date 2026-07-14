@@ -1,0 +1,35 @@
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">Otago<strong>Orienteering</strong></span>
+    </a>
+    <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false">
+      <span class="sr-only">Menu</span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <ul>
+        {% for item in site.nav %}
+        <li>
+          <a href="{{ item.url | relative_url }}"
+             {% if page.url == item.url %}aria-current="page"{% endif %}>
+            {{ item.title }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>
+<script>
+  (function () {
+    var btn = document.querySelector('.nav-toggle');
+    var nav = document.getElementById('site-nav');
+    btn && btn.addEventListener('click', function () {
+      var open = nav.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open);
+    });
+  })();
+</script>
