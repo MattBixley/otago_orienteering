@@ -9,6 +9,12 @@ url: "https://mattbixley.github.io"
 baseurl: "/otago_orienteering"
 locale: en_NZ
 
+# Plugins (must be listed here for GitHub Pages safe mode to load them)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
 # Build
 markdown: kramdown
 permalink: pretty
