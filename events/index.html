@@ -20,7 +20,7 @@ description: Upcoming Otago Orienteering events — dates, locations, courses an
   </p>
 </div>
 
-{% assign today = site.time | date: "%Y-%m-%d" %}
+{% assign today = site.time %}
 {% assign upcoming = site.events | where_exp: "e", "e.date >= today" | sort: "date" %}
 {% assign past = site.events | where_exp: "e", "e.date < today" | sort: "date" | reverse %}
 

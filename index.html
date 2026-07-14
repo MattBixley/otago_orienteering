@@ -24,7 +24,7 @@ description: Otago Orienteering Club — events, results and resources for orien
     <a href="{{ '/events/' | relative_url }}">Full calendar &rarr;</a>
   </div>
 
-  {% assign today = site.time | date: "%Y-%m-%d" %}
+  {% assign today = site.time %}
   {% assign upcoming = site.events | where_exp: "e", "e.date >= today" | sort: "date" %}
   {% if upcoming.size > 0 %}
   <ul class="event-list">
