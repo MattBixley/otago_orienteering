@@ -19,6 +19,8 @@ plugins:
 markdown: kramdown
 permalink: pretty
 timezone: Pacific/Auckland
+# Publish future-dated docs — upcoming events are by definition in the future
+future: true
 
 # Collections
 collections:
