@@ -14,7 +14,8 @@ description: Upcoming Otago Orienteering events — dates, locations, courses an
   <h3>New here? Read this first</h3>
   <p>
     You can just turn up. Registration usually opens 30–45 minutes before the
-    start; casual entry is available at most events (see each event for cost).
+    start. Standard entry is $10 for members and $20 for non-members, juniors
+    half price (championship and special events differ — see each event).
     Wear shoes you can run off-track in and bring a friend.
     <a href="{{ '/about/' | relative_url }}">More for beginners &rarr;</a>
   </p>
@@ -78,8 +79,13 @@ description: Upcoming Otago Orienteering events — dates, locations, courses an
   <div class="callout">
     <h3>Subscribe to the calendar</h3>
     <p>
+      {% if site.calendar_url and site.calendar_url != "" %}
+      Add every club event to your own calendar:
+      <a class="btn" href="{{ site.calendar_url }}">Subscribe to the club calendar</a>
+      {% else %}
       Subscribe to the club Google Calendar to see events in your own calendar
-      (subscription link on request — <code>[google-calendar-link]</code>).
+      (subscription link available on request).
+      {% endif %}
       Where an event needs an entry, it's usually a Google Form linked from the
       event page; membership is handled through
       <a href="https://www.revolutionise.com.au/dunedinoc/registration/">RevolutioniseSPORT</a>.

@@ -5,7 +5,7 @@ start_time: 5:30pm–7:00pm
 event_type: Rogaine
 location: Signal Hill, Dunedin
 grade: 90-minute score rogaine — all levels
-cost: Members half price · casuals welcome
+cost: $10 members · $20 non-members · juniors half
 registration: "[Google Form — registrations close midnight Tuesday 21 July]"
 ---
 

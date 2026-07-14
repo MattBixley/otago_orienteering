@@ -78,6 +78,10 @@ Annual membership fees:
 joining after 30 June; Dunedin residents who are ancillary members of another
 club.
 
+**Event entry (standard Club & OY events):** $10 members, $20 non-members;
+juniors half price ($5 members / $10 non-members). Championship and special
+events are priced separately.
+
 **Members' benefits:** half-price entry at Club and OY events, certificate
 eligibility (top 3), junior training-camp subsidies, coaching clinics and social
 events, and NZ Orienteering Federation affiliation.

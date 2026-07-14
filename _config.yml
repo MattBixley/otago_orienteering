@@ -66,6 +66,10 @@ nav:
     url: /contact/
 
 # Social / club
+# Paste the club Google Calendar public/subscribe URL here to switch the events
+# page from a placeholder to a real "Subscribe" button. Leave blank until known.
+calendar_url: ""
+
 social:
   facebook: https://www.facebook.com/COOrienteering/
   google_group: https://groups.google.com/g/otagoorienteering
