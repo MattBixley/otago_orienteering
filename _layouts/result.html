@@ -6,7 +6,7 @@ layout: default
   <header class="page-header">
     <h1>{{ page.title }}</h1>
     <p class="event-meta">
-      <strong>{{ page.date | date: "%-d %B %Y" }}</strong>
+      <strong>{% if page.undated %}{{ page.year }}{% else %}{{ page.date | date: "%-d %B %Y" }}{% endif %}</strong>
       {% if page.event_type %} · {{ page.event_type }}{% endif %}
     </p>
   </header>

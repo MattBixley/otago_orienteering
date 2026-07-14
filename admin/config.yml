@@ -40,7 +40,7 @@ collections:
       - { name: title, label: "Event name", widget: string }
       - { name: date, label: "Date", widget: datetime, format: "YYYY-MM-DD", date_format: "DD MMM YYYY", time_format: false }
       - { name: start_time, label: "Start time", widget: string, required: false, hint: "e.g. 10:00am start, register from 9:30am" }
-      - { name: event_type, label: "Event type", widget: select, options: ["Club event", "Sprint", "Bush event", "Score", "MTBO", "Series", "Schools", "National"], default: "Club event" }
+      - { name: event_type, label: "Event type", widget: select, options: ["OY Classic", "Sprint", "Summer/Schools Series", "Rogaine", "MTBO", "Night", "Championship", "Ski", "Other"], default: "OY Classic" }
       - { name: location, label: "Location", widget: string }
       - { name: grade, label: "Courses / grades", widget: string, required: false }
       - { name: cost, label: "Cost", widget: string, required: false, default: "Members free, casuals $10, under-16 $5" }
@@ -61,7 +61,7 @@ collections:
       - { name: title, label: "Event name", widget: string }
       - { name: date, label: "Date", widget: datetime, format: "YYYY-MM-DD", date_format: "DD MMM YYYY", time_format: false }
       - { name: year, label: "Year", widget: number, value_type: int, hint: "Used to group results, e.g. 2026" }
-      - { name: event_type, label: "Event type", widget: select, options: ["Club event", "Sprint", "Bush event", "Score", "MTBO", "Series", "Schools", "National"], default: "Club event" }
+      - { name: event_type, label: "Event type", widget: select, options: ["OY Classic", "Sprint", "Summer/Schools Series", "Rogaine", "MTBO", "Night", "Championship", "Ski", "Other"], default: "OY Classic" }
       - { name: event, label: "Event page path", widget: string, required: false }
       - name: files
         label: "Result files"

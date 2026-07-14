@@ -30,7 +30,7 @@ description: Otago Orienteering results and splits, archived by year and event t
             {% assign rows = year_results | where: "event_type", type %}
             {% for r in rows %}
             <tr>
-              <td>{{ r.date | date: "%-d %b" }}</td>
+              <td>{% if r.undated %}—{% else %}{{ r.date | date: "%-d %b" }}{% endif %}</td>
               <td><a href="{{ r.url | relative_url }}">{{ r.title }}</a></td>
               <td>
                 {% if r.files %}

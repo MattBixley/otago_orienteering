@@ -50,6 +50,20 @@ We are a community club with big ambitions for the sport in Otago. We aim to:
 - **Support juniors and schools**, helping young orienteers find their feet in the sport.
 - **Foster a strong club community** where members of all ages and abilities feel at home.
 
+## What we run
+
+Across the year the club puts on a full spread of orienteering:
+
+- **Club Classic "OY" events** — our main foot-orienteering series, up to five a
+  year across Otago with courses from White through to Long Red.
+- **Summer & Schools Series** — Term 1 evening events with a beginner-friendly
+  three-course format, feeding into the Otago Schools' Champs.
+- **Sprint events** — fast, local Dunedin races with winning times of 15–20 minutes.
+- **Rogaines** — score events where you choose which controls to get, typically
+  three hours or shorter, including popular night rogaines.
+- **Mountain Bike Orienteering (MTBO)** — around Alexandra and Naseby.
+- **Ski Orienteering** — at the Snow Farm near Wanaka.
+
 ## Where we run events
 
 Our events take place in and around **Dunedin** — city parks, bush reserves,

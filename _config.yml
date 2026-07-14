@@ -4,7 +4,7 @@ description: >-
   Otago Orienteering Club (formerly Dunedin Orienteering Club) — events,
   results, resources and everything you need to start orienteering in Otago,
   New Zealand.
-email: info@otagoorienteering.org
+email: committee@dunedinorienteering.org
 url: "https://mattbixley.github.io"
 baseurl: "/otago_orienteering"
 locale: en_NZ
@@ -68,6 +68,7 @@ nav:
 # Social / club
 social:
   facebook: https://www.facebook.com/COOrienteering/
+  google_group: https://groups.google.com/g/otagoorienteering
   onz: https://www.orienteering.org.nz/
 
 exclude:

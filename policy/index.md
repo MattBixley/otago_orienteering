@@ -64,17 +64,36 @@ meeting them.
 
 ## Membership &amp; fees
 
-*[Placeholder — to be completed by the committee.]*
+Annual membership fees:
 
-This section should set out membership categories (for example senior, junior,
-tertiary and family), the current fees for the year, any discounts, and how to
-join and renew. Details on joining are also on our
-[Contact &amp; join page](/contact/).
+| Category | Fee |
+|----------|-----|
+| Senior | $40 |
+| Junior (age 20 or under as at 31 Dec; under-7s free) | $20 |
+| Tertiary student (full-time, under 21) | $30 |
+| Community Services Card holder | $30 |
+| Family maximum (up to two seniors at one address, plus any juniors) | $100 |
 
-- Membership year: [dates]
-- Fees: [senior], [junior], [tertiary], [family]
-- Payment: [bank account] / online membership platform
-- Membership enquiries: [membership@…]
+**Discounts (50% off — one only):** new members never previously in a club;
+joining after 30 June; Dunedin residents who are ancillary members of another
+club.
+
+**Members' benefits:** half-price entry at Club and OY events, certificate
+eligibility (top 3), junior training-camp subsidies, coaching clinics and social
+events, and NZ Orienteering Federation affiliation.
+
+**Join or renew:** online via RevolutioniseSPORT —
+[register](https://www.revolutionise.com.au/dunedinoc/registration/) /
+[log in](https://www.revolutionise.com.au/dunedinoc/login/). Details are also on
+the [Contact &amp; join page](/contact/).
+
+**Payment:** direct credit to *Dunedin Orienteering Club* 12-3150-0152097-00,
+Particulars "Membership", Reference = surname.
+
+**Membership enquiries:** [membership@dunedinorienteering.org](mailto:membership@dunedinorienteering.org).
+
+*Event equipment hire: SportIdent stick $3/course, SIAC chip $5/event, thumb
+compass $3/course.*
 
 ## Complaints
 
