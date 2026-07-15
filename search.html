@@ -46,7 +46,7 @@ sitemap: false
       if (!docs) { summary.textContent = 'Loading…'; return; }
       var hits = docs.map(function (d) { return { d: d, s: score(d, q) }; })
         .filter(function (x) { return x.s > 0; })
-        .sort(function (a, b) { return b.s - a.s; });
+        .sort(function (a, b) { return ((b.d.date || 0) - (a.d.date || 0)) || (b.s - a.s); });
       summary.textContent = hits.length + ' result' + (hits.length === 1 ? '' : 's') + ' for “' + q + '”';
       out.innerHTML = hits.map(function (x) {
         var d = x.d, snip = (d.content || '').slice(0, 140);
