@@ -13,6 +13,25 @@ layout: default
     </p>
   </header>
 
+  {%- comment -%} Photo: use the event's own if set, else a default for its type {%- endcomment -%}
+  {%- if page.image -%}
+    {%- assign event_photo = page.image -%}
+  {%- else -%}
+    {%- case page.event_type -%}
+      {%- when "MTBO" -%}{%- assign event_photo = "/assets/img/photos/mtbo.jpg" -%}
+      {%- when "Sprint" -%}{%- assign event_photo = "/assets/img/photos/celebrate.jpg" -%}
+      {%- when "Summer/Schools Series" -%}{%- assign event_photo = "/assets/img/photos/juniors.jpg" -%}
+      {%- when "Rogaine", "Night" -%}{%- assign event_photo = "/assets/img/photos/event-base.jpg" -%}
+      {%- when "Championship" -%}{%- assign event_photo = "/assets/img/photos/relay.jpg" -%}
+      {%- when "OY Classic", "Ski" -%}{%- assign event_photo = "/assets/img/photos/hill-runner.jpg" -%}
+      {%- else -%}{%- assign event_photo = "/assets/img/photos/celebrate.jpg" -%}
+    {%- endcase -%}
+  {%- endif -%}
+  <div class="page-banner">
+    <img src="{{ event_photo | relative_url }}" width="1500" height="300"
+         alt="{{ page.event_type | default: 'Orienteering' }} — {{ page.title | escape }}" loading="lazy">
+  </div>
+
   <div class="event-grid">
     <div class="prose">
       {{ content }}

@@ -52,6 +52,7 @@ collections:
       - { name: date, label: "Date", widget: datetime, format: "YYYY-MM-DD", date_format: "DD MMM YYYY", time_format: false }
       - { name: start_time, label: "Start time", widget: string, required: false, hint: "e.g. 10:00am start, register from 9:30am" }
       - { name: event_type, label: "Event type", widget: select, options: ["OY Classic", "Sprint", "Summer/Schools Series", "Rogaine", "MTBO", "Night", "Championship", "Ski", "Other"], default: "OY Classic" }
+      - { name: image, label: "Photo", widget: image, required: false, public_folder: "/assets/img/uploads", hint: "Optional — a photo for this event. Leave blank to use the default for the event type." }
       - { name: location, label: "Location", widget: string }
       - { name: grade, label: "Courses / grades", widget: string, required: false }
       - { name: cost, label: "Cost", widget: string, required: false, default: "Members free, casuals $10, under-16 $5" }
