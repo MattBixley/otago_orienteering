@@ -5,6 +5,11 @@ subtitle: Find your way in the wild places of Otago
 permalink: /about/
 ---
 
+<div class="page-banner">
+  <img src="{{ '/assets/img/photos/juniors.jpg' | relative_url }}" width="1500" height="300"
+       alt="Junior orienteers running past a lake at a New Zealand event" loading="lazy">
+</div>
+
 Otago Orienteering Club is a friendly, volunteer-run club for anyone who loves
 being outdoors and using their head as much as their legs. We put on
 orienteering events right across Otago, from the parks and hills around Dunedin

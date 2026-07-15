@@ -5,6 +5,11 @@ subtitle: The best places to learn, from beginner to expert
 permalink: /resources/
 ---
 
+<div class="page-banner">
+  <img src="{{ '/assets/img/photos/event-base.jpg' | relative_url }}" width="1500" height="300"
+       alt="An orienteering event base at dawn in the New Zealand hills" loading="lazy">
+</div>
+
 Rather than duplicate it here, we point you to **Orienteering New Zealand
 (ONZ)**, our national body, which maintains an excellent and up-to-date library
 of guides, training material, rules and safety resources. The links below take

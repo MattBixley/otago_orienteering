@@ -10,12 +10,28 @@ description: Otago Orienteering results and splits, archived by year and event t
   <p class="page-subtitle">Archived by year, then event type. Splits and route analysis link out to WinSplits, RouteGadget and Livelox.</p>
 </div>
 
+<div class="page-banner">
+  <img src="{{ '/assets/img/photos/relay.jpg' | relative_url }}" width="1500" height="300"
+       alt="Orienteers competing in a New Zealand relay" loading="lazy">
+</div>
+
 {% assign results = site.results | sort: "date" | reverse %}
 
 {% if results.size > 0 %}
   {% assign years = results | map: "year" | uniq %}
+
+  <div class="results-controls">
+    <label for="year-filter">Jump to year</label>
+    <select class="year-select" id="year-filter" aria-label="Filter results by year">
+      <option value="all">All years</option>
+      {% for year in years %}
+      <option value="{{ year }}">{{ year }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
   {% for year in years %}
-  <section class="year-block">
+  <section class="year-block" id="year-{{ year }}" data-year="{{ year }}">
     <h2>{{ year }}</h2>
     {% assign year_results = results | where: "year", year %}
     {% assign types = year_results | map: "event_type" | uniq %}
@@ -48,6 +64,27 @@ description: Otago Orienteering results and splits, archived by year and event t
 {% else %}
   <p>No results have been posted yet. Check back after our next event.</p>
 {% endif %}
+
+<script>
+  (function () {
+    var sel = document.getElementById('year-filter');
+    if (!sel) return;
+    var blocks = document.querySelectorAll('.year-block');
+    function apply(val) {
+      blocks.forEach(function (b) {
+        b.hidden = !(val === 'all' || b.getAttribute('data-year') === val);
+      });
+    }
+    // Deep-link support: /results/#year-2024 pre-selects that year
+    var hash = (location.hash || '').replace('#year-', '');
+    if (hash && sel.querySelector('option[value="' + hash + '"]')) { sel.value = hash; }
+    apply(sel.value);
+    sel.addEventListener('change', function () {
+      apply(sel.value);
+      history.replaceState(null, '', sel.value === 'all' ? location.pathname : '#year-' + sel.value);
+    });
+  })();
+</script>
 
 <section class="section">
   <div class="callout">

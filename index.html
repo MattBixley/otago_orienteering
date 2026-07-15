@@ -5,7 +5,7 @@ hide_title: true
 description: Otago Orienteering Club — events, results and resources for orienteering across Otago, New Zealand. Beginners welcome.
 ---
 
-<section class="hero">
+<section class="hero hero-photo" style="--hero-img: url('{{ '/assets/img/photos/celebrate.jpg' | relative_url }}')">
   <h1>Find your way in the wild places of Otago</h1>
   <p>
     Otago Orienteering Club runs navigation-and-running events across Dunedin and
@@ -16,38 +16,6 @@ description: Otago Orienteering Club — events, results and resources for orien
     <a class="btn" href="{{ '/events/' | relative_url }}">See upcoming events</a>
     <a class="btn btn-ghost" href="{{ '/about/' | relative_url }}">New to orienteering?</a>
   </div>
-</section>
-
-<section class="section">
-  <div class="section-head">
-    <h2>Next events</h2>
-    <a href="{{ '/events/' | relative_url }}">Full calendar &rarr;</a>
-  </div>
-
-  {% assign today = site.time %}
-  {% assign upcoming = site.events | where_exp: "e", "e.date >= today" | sort: "date" %}
-  {% if upcoming.size > 0 %}
-  <ul class="event-list">
-    {% for event in upcoming limit: 4 %}
-    <li>
-      <a class="event-item" href="{{ event.url | relative_url }}">
-        <span class="event-date">
-          <span class="d">{{ event.date | date: "%-d" }}</span>
-          <span class="m">{{ event.date | date: "%b" }}</span>
-        </span>
-        <span>
-          <h3>{{ event.title }}</h3>
-          <span class="where">{{ event.location }}</span>
-        </span>
-        <span class="go" aria-hidden="true">&rarr;</span>
-      </a>
-    </li>
-    {% endfor %}
-  </ul>
-  {% else %}
-  <p>No events are scheduled right now — check back soon or follow us on
-     <a href="{{ site.social.facebook }}">Facebook</a>.</p>
-  {% endif %}
 </section>
 
 <section class="section">
@@ -77,6 +45,42 @@ description: Otago Orienteering Club — events, results and resources for orien
 </section>
 
 <section class="section">
+  <div class="section-head">
+    <h2>Next event</h2>
+    <a href="{{ '/events/' | relative_url }}">Full calendar &rarr;</a>
+  </div>
+
+  {% assign today = site.time %}
+  {% assign upcoming = site.events | where_exp: "e", "e.date >= today" | sort: "date" %}
+  {% if upcoming.size > 0 %}
+  {% assign event = upcoming | first %}
+  <ul class="event-list">
+    <li>
+      <a class="event-item" href="{{ event.url | relative_url }}">
+        <span class="event-date">
+          <span class="d">{{ event.date | date: "%-d" }}</span>
+          <span class="m">{{ event.date | date: "%b" }}</span>
+        </span>
+        <span>
+          <h3>{{ event.title }}</h3>
+          <span class="where">{{ event.location }}{% if event.start_time %} · {{ event.start_time }}{% endif %}</span>
+        </span>
+        <span class="go" aria-hidden="true">&rarr;</span>
+      </a>
+    </li>
+  </ul>
+  {% else %}
+  <p>No events are scheduled right now — check back soon or follow us on
+     <a href="{{ site.social.facebook }}">Facebook</a>.</p>
+  {% endif %}
+</section>
+
+<section class="section">
+  <figure class="figure">
+    <img src="{{ '/assets/img/photos/hill-runner.jpg' | relative_url }}" width="1500" height="300"
+         alt="An orienteer running across open Otago hill country" loading="lazy">
+    <figcaption>Otago's open hill country makes for classic Kiwi orienteering. <span class="credit">Photo: Orienteering New Zealand</span></figcaption>
+  </figure>
   <div class="callout">
     <h3>Everyone is welcome</h3>
     <p>

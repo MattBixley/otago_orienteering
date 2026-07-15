@@ -14,12 +14,23 @@ backend:
   repo: MattBixley/otago_orienteering   # change to the club's org/repo when handed over
   branch: main
   # Auth helper that performs the GitHub OAuth token exchange. REQUIRED for
-  # login to work. Deploy sveltia-cms-auth (Cloudflare Worker) and paste its
-  # URL here (no trailing slash). Full instructions: see OAuth.md.
+  # login on the LIVE site to work. Deploy sveltia-cms-auth (Cloudflare Worker)
+  # and paste its URL here (no trailing slash). Full instructions: see OAuth.md.
   # base_url: https://<your-auth-worker>.workers.dev
   # Editorial workflow gives Draft → In review → Ready, so changes can be
   # checked before they go live. Great for a multi-editor committee.
   # publish_mode: editorial_workflow
+
+# LOCAL TEST MODE — lets a committee member trial the CMS (add an event,
+# post results, edit a page) with NO OAuth worker and NO GitHub login.
+# How to test:
+#   1. In the repo root run:  npx @sveltia/cms-proxy-server
+#   2. Serve the site:        bundle exec jekyll serve
+#   3. Open http://localhost:4000/otago_orienteering/admin/
+# Sveltia detects the proxy and reads/writes local files directly.
+# This flag is ignored on the deployed GitHub Pages site (not localhost),
+# so it is safe to leave on — the live site still uses the github backend above.
+local_backend: true
 
 media_folder: "assets/img/uploads"
 public_folder: "/otago_orienteering/assets/img/uploads"

@@ -1,0 +1,67 @@
+---
+layout: default
+title: Search
+permalink: /search/
+description: Search Otago Orienteering events, results, resources and pages.
+sitemap: false
+---
+
+<div class="page-header">
+  <h1>Search</h1>
+  <p class="page-subtitle">Find events, results, resources and pages across the site.</p>
+</div>
+
+<form class="results-controls" role="search" action="{{ '/search/' | relative_url }}" method="get">
+  <label for="q">Search</label>
+  <input type="search" id="q" name="q" class="year-select" style="min-width:220px"
+         placeholder="e.g. sprint, Chatto Creek, membership" autocomplete="off">
+</form>
+
+<p id="search-summary" class="page-subtitle" aria-live="polite"></p>
+<ul class="search-page-results" id="search-page-results"></ul>
+
+<script>
+  (function () {
+    var endpoint = {{ '/search.json' | relative_url | jsonify }};
+    var input = document.getElementById('q');
+    var out = document.getElementById('search-page-results');
+    var summary = document.getElementById('search-summary');
+    var docs = null;
+
+    function param() {
+      var m = /[?&]q=([^&]*)/.exec(window.location.search);
+      return m ? decodeURIComponent(m[1].replace(/\+/g, ' ')) : '';
+    }
+    function score(d, q) {
+      var t = (d.title || '').toLowerCase();
+      if (t.indexOf(q) === 0) return 3;
+      if (t.indexOf(q) > -1) return 2;
+      if ((d.tags || '').toLowerCase().indexOf(q) > -1) return 1.5;
+      if ((d.content || '').toLowerCase().indexOf(q) > -1) return 1;
+      return 0;
+    }
+    function render(q) {
+      q = (q || '').trim().toLowerCase();
+      if (!q) { out.innerHTML = ''; summary.textContent = 'Type above to search.'; return; }
+      if (!docs) { summary.textContent = 'Loading…'; return; }
+      var hits = docs.map(function (d) { return { d: d, s: score(d, q) }; })
+        .filter(function (x) { return x.s > 0; })
+        .sort(function (a, b) { return b.s - a.s; });
+      summary.textContent = hits.length + ' result' + (hits.length === 1 ? '' : 's') + ' for “' + q + '”';
+      out.innerHTML = hits.map(function (x) {
+        var d = x.d, snip = (d.content || '').slice(0, 140);
+        return '<li><a href="' + d.url + '"><span class="r-kind">' + d.kind + '</span>' +
+               '<h3>' + d.title + '</h3><p>' + snip + '…</p></a></li>';
+      }).join('');
+    }
+
+    fetch(endpoint).then(function (r) { return r.json(); })
+      .then(function (d) { docs = d; render(input.value); })
+      .catch(function () { summary.textContent = 'Search is unavailable right now.'; });
+
+    var q0 = param();
+    if (q0) input.value = q0;
+    render(input.value);
+    input.addEventListener('input', function () { render(input.value); });
+  })();
+</script>

@@ -1,0 +1,26 @@
+---
+layout: null
+permalink: /search.json
+sitemap: false
+---
+{%- assign sep = "" -%}
+[
+{%- comment -%} Standalone content pages {%- endcomment -%}
+{%- assign pages = site.html_pages | where_exp: "p", "p.title" -%}
+{%- for p in pages -%}
+  {%- unless p.url contains "/search" or p.url contains "404" or p.url contains "/admin" -%}
+  {{ sep }}{ "title": {{ p.title | jsonify }}, "url": {{ p.url | relative_url | jsonify }}, "kind": "Page", "tags": {{ p.subtitle | default: "" | jsonify }}, "content": {{ p.content | strip_html | strip_newlines | truncatewords: 80 | jsonify }} }
+  {%- assign sep = "," -%}
+  {%- endunless -%}
+{%- endfor -%}
+{%- comment -%} Events {%- endcomment -%}
+{%- for e in site.events -%}
+  {{ sep }}{ "title": {{ e.title | jsonify }}, "url": {{ e.url | relative_url | jsonify }}, "kind": "Event", "tags": {{ e.event_type | append: " " | append: e.location | jsonify }}, "content": {{ e.content | strip_html | strip_newlines | truncatewords: 60 | jsonify }} }
+  {%- assign sep = "," -%}
+{%- endfor -%}
+{%- comment -%} Results {%- endcomment -%}
+{%- for r in site.results -%}
+  {{ sep }}{ "title": {{ r.title | jsonify }}, "url": {{ r.url | relative_url | jsonify }}, "kind": {{ r.year | default: "Result" | append: " Results" | jsonify }}, "tags": {{ r.event_type | jsonify }}, "content": {{ r.content | strip_html | strip_newlines | truncatewords: 40 | jsonify }} }
+  {%- assign sep = "," -%}
+{%- endfor -%}
+]
