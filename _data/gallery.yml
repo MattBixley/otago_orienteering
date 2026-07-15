@@ -1,0 +1,28 @@
+# Photo gallery. Edit here or via the CMS (/admin/ → Gallery).
+# image: site-relative path, e.g. /assets/img/uploads/my-photo.jpg
+# Newest first is nice, but order is up to you.
+photos:
+  - image: /assets/img/photos/celebrate.jpg
+    alt: Two orienteers laughing as they run in to the finish
+    caption: All smiles at the finish chute.
+    credit: Orienteering New Zealand
+  - image: /assets/img/photos/hill-runner.jpg
+    alt: An orienteer running across open Otago hill country
+    caption: Classic Kiwi hill-country orienteering.
+    credit: Orienteering New Zealand
+  - image: /assets/img/photos/juniors.jpg
+    alt: Junior orienteers running past a lake
+    caption: Juniors on the move by the lake.
+    credit: Orienteering New Zealand
+  - image: /assets/img/photos/mtbo.jpg
+    alt: A mountain-bike orienteer navigating through forest
+    caption: Mountain-bike orienteering in the trees.
+    credit: Orienteering New Zealand
+  - image: /assets/img/photos/relay.jpg
+    alt: Orienteers competing in a New Zealand relay
+    caption: Relay changeover in the black singlet.
+    credit: Orienteering New Zealand
+  - image: /assets/img/photos/event-base.jpg
+    alt: An orienteering event base at dawn in the hills
+    caption: Event base at first light.
+    credit: Orienteering New Zealand

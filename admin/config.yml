@@ -83,6 +83,27 @@ collections:
           - { name: url, label: "File / link", widget: string }
       - { name: body, label: "Notes", widget: markdown, required: false }
 
+  - name: gallery
+    label: "Gallery"
+    editor: { preview: false }
+    files:
+      - name: photos
+        label: "Photo gallery"
+        file: "_data/gallery.yml"
+        fields:
+          - name: photos
+            label: "Photos"
+            label_singular: "Photo"
+            widget: list
+            summary: "{{fields.caption}}"
+            fields:
+              # public_folder without the /otago_orienteering baseurl — the
+              # template adds it via | relative_url, matching the seed entries.
+              - { name: image, label: "Photo", widget: image, public_folder: "/assets/img/uploads" }
+              - { name: alt, label: "Alt text (for screen readers)", widget: string, required: false }
+              - { name: caption, label: "Caption", widget: string, required: false }
+              - { name: credit, label: "Photo credit", widget: string, required: false }
+
   - name: pages
     label: "Pages"
     editor: { preview: false }
