@@ -21,10 +21,27 @@
   --shadow: 0 1px 2px rgba(0,60,95,.06), 0 8px 24px rgba(0,60,95,.10);
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-head: "Bitter", Georgia, "Times New Roman", serif; /* slab-serif, like the club site */
+  color-scheme: light;
 }
 
+/* Dark palette. Shared by two triggers below so the values live in one place. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --blue: #3aa6de;
+  --blue-dark: #0a1a24;
+  --blue-light: #15242e;
+  --ink: #e7edf1;
+  --heading: #f3f7fa;
+  --muted: #9fb0bb;
+  --paper: #0e161c;
+  --surface: #16222b;
+  --border: #26343d;
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.4);
+}
+/* Follow the OS when the visitor hasn't forced light via the toggle. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
     --blue: #3aa6de;
     --blue-dark: #0a1a24;
     --blue-light: #15242e;
@@ -256,6 +273,17 @@ th { background: var(--blue-light); color: var(--blue); font-weight: 700; }
   color: var(--muted); font-size: .8rem; margin-top: .4rem; line-height: 1.4;
 }
 .credit { text-align: right; }
+
+/* Theme toggle button */
+.theme-toggle {
+  flex: none; margin-left: .4rem; width: 40px; height: 40px; padding: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 999px;
+  cursor: pointer; font-size: 1.1rem; line-height: 1; color: var(--ink);
+}
+.theme-toggle:hover { border-color: var(--blue); background: var(--blue-light); }
+.theme-toggle:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--blue-light); }
+@media (max-width: 780px) { .theme-toggle { margin-left: .25rem; } }
 
 /* Facebook page embed */
 .fb-embed { display: flex; justify-content: center; }

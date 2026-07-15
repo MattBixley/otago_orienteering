@@ -29,6 +29,10 @@
              autocomplete="off" aria-controls="search-results" aria-expanded="false">
       <ul class="search-results" id="search-results" role="listbox" aria-label="Search results"></ul>
     </form>
+    <button class="theme-toggle" id="theme-toggle" type="button"
+            aria-label="Switch colour theme" title="Switch light / dark theme">
+      <span class="theme-icon" aria-hidden="true">🌙</span>
+    </button>
   </div>
 </header>
 <script>
@@ -39,6 +43,34 @@
       var open = nav.classList.toggle('is-open');
       btn.setAttribute('aria-expanded', open);
     });
+
+    // ── Light / dark theme toggle ─────────────────────────
+    var toggle = document.getElementById('theme-toggle');
+    if (toggle) {
+      var icon = toggle.querySelector('.theme-icon');
+      var mq = window.matchMedia('(prefers-color-scheme: dark)');
+      function current() {
+        var set = document.documentElement.getAttribute('data-theme');
+        return set || (mq.matches ? 'dark' : 'light');
+      }
+      function paint() {
+        var dark = current() === 'dark';
+        icon.textContent = dark ? '☀️' : '🌙';
+        toggle.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+        toggle.setAttribute('aria-pressed', String(dark));
+      }
+      toggle.addEventListener('click', function () {
+        var next = current() === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        paint();
+      });
+      // If the visitor never chose, keep following the OS as it changes.
+      mq.addEventListener && mq.addEventListener('change', function () {
+        if (!document.documentElement.getAttribute('data-theme')) paint();
+      });
+      paint();
+    }
 
     // ── Live search dropdown ──────────────────────────────
     var form = document.querySelector('.site-search');
