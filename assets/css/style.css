@@ -257,6 +257,10 @@ th { background: var(--blue-light); color: var(--blue); font-weight: 700; }
 }
 .credit { text-align: right; }
 
+/* Facebook page embed */
+.fb-embed { display: flex; justify-content: center; }
+.fb-embed iframe { width: 500px; max-width: 100%; border-radius: var(--radius); box-shadow: var(--shadow); }
+
 /* ── Search ─────────────────────────────────────────────── */
 .site-search { position: relative; margin-left: .5rem; }
 .site-search input[type="search"] {

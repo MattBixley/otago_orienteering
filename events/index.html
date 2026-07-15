@@ -81,6 +81,23 @@ description: Upcoming Otago Orienteering events — dates, locations, courses an
 {% endif %}
 
 <section class="section">
+  <div class="section-head">
+    <h2>From our Facebook</h2>
+    <a href="{{ site.social.facebook }}">Open on Facebook &rarr;</a>
+  </div>
+  <p class="page-subtitle">Recent photos, event photos and updates straight from the club's Facebook page.</p>
+  <div class="fb-embed">
+    <iframe title="Otago Orienteering on Facebook"
+      src="https://www.facebook.com/plugins/page.php?href={{ site.social.facebook | url_encode }}&tabs=timeline&width=500&height=680&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+      width="500" height="680" style="border:none;overflow:hidden" scrolling="no"
+      frameborder="0" allowfullscreen="true"
+      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+      loading="lazy"></iframe>
+  </div>
+  <noscript><p><a href="{{ site.social.facebook }}">See our photos and updates on Facebook.</a></p></noscript>
+</section>
+
+<section class="section">
   <div class="callout">
     <h3>Subscribe to the calendar</h3>
     <p>
